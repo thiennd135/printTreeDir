@@ -12,7 +12,7 @@ A cross-platform desktop application to visualize your directory structure with 
 1.  **Clone the repository:**
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/thiennd135/printTreeDir
     cd printTreeDir
     ```
 2.  **Install dependencies:**
