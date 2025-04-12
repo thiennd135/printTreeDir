@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary-color: #6b7280;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+  }
+  
+  body {
+    @apply bg-gray-50 antialiased;
+  }
+}
+
+@layer components {
+  .app-container {
+    @apply max-w-4xl mx-auto h-screen flex flex-col p-3;
+  }
+  
+  .main-content {
+    @apply flex-1 overflow-hidden flex flex-col gap-3;
+  }
+  
+  .settings-panel {
+    @apply bg-white rounded-lg shadow-md overflow-hidden border border-gray-100;
+  }
+  
+  .panel-header {
+    @apply bg-primary text-white px-3 py-2 font-semibold flex justify-between items-center text-sm;
+  }
+  
+  .panel-body {
+    @apply p-3;
+  }
+  
+  .input-container {
+    @apply mb-3 relative;
+  }
+  
+  .input-field {
+    @apply border border-gray-200 rounded-md px-3 py-1.5 text-sm w-full h-8
+    focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary
+    transition-all duration-200;
+  }
+  
+  .input-label {
+    @apply block text-xs text-gray-500 mt-0.5 font-medium;
+  }
+  
+  .browse-button {
+    @apply bg-gray-100 text-gray-700 rounded-md h-8 w-9 flex items-center justify-center ml-2
+    hover:bg-gray-200 transition-all duration-200 border border-gray-200
+    focus:outline-none focus:ring-2 focus:ring-primary/30;
+  }
+  
+  .controls-row {
+    @apply flex items-center justify-between mb-3 gap-4;
+  }
+  
+  .small-input {
+    @apply max-w-[90px];
+  }
+  
+  .toggle-container {
+    @apply flex items-center;
+  }
+  
+  .toggle-wrapper {
+    @apply relative w-9 h-[1.125rem] mr-2;
+  }
+  
+  .toggle-input {
+    @apply opacity-0 w-0 h-0;
+  }
+  
+  .toggle-label {
+    @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 
+    transition-all duration-300 rounded-full
+    before:absolute before:content-[''] before:h-3.5 before:w-3.5 before:left-0.5 before:bottom-0.5 
+    before:bg-white before:transition-all before:duration-300 before:rounded-full before:shadow-sm;
+  }
+  
+  .toggle-input:checked + .toggle-label {
+    @apply bg-primary;
+  }
+  
+  .toggle-input:checked + .toggle-label:before {
+    @apply translate-x-[1.125rem];
+  }
+  
+  .toggle-text {
+    @apply text-sm text-gray-700 font-medium;
+  }
+  
+  .actions-row {
+    @apply flex gap-3 mt-2;
+  }
+  
+  .primary-button {
+    @apply bg-primary text-white rounded-md text-sm py-2 px-4 
+    flex items-center justify-center gap-2 transition-all duration-200
+    hover:bg-primary-hover flex-2 shadow-sm font-medium
+    focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-1;
+  }
+  
+  .secondary-button {
+    @apply bg-white text-primary border border-primary/50 rounded-md text-sm py-2 px-4 
+    flex items-center justify-center gap-2 transition-all duration-200
+    hover:bg-gray-50 flex-1 shadow-sm font-medium
+    focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-1;
+  }
+  
+  .output-panel {
+    @apply bg-white rounded-lg shadow-md overflow-hidden flex-1 border border-gray-100;
+  }
+  
+  .panel-header-with-status {
+    @apply bg-primary text-white px-3 py-2 font-semibold flex justify-between items-center;
+  }
+  
+  .buttons-row {
+    @apply flex gap-3 mb-2;
+  }
+  
+  .utility-button {
+    @apply flex-1 bg-white border border-gray-200 rounded-md text-sm py-1.5 px-4
+    flex items-center justify-center gap-2 transition-all duration-200
+    shadow-sm font-medium
+    focus:outline-none focus:ring-2 focus:ring-gray-400/50 focus:ring-offset-1;
+  }
+  
+  .copy-button {
+    @apply utility-button text-gray-700 hover:bg-gray-50;
+  }
+  
+  .clear-button {
+    @apply utility-button text-danger hover:bg-red-50;
+  }
+  
+  .header-section {
+    @apply bg-gray-50 border border-gray-200 rounded-md mb-2 p-2 text-sm;
+  }
+  
+  .header-info {
+    @apply font-mono text-sm whitespace-pre-wrap break-all overflow-auto text-gray-700;
+  }
+  
+  .tree-section {
+    @apply bg-gray-50 border border-gray-200 rounded-md p-2 overflow-auto flex-1;
+  }
+  
+  .tree-output {
+    @apply font-mono text-sm whitespace-pre overflow-visible text-gray-700;
+  }
+  
+  .status-indicator {
+    @apply inline-block w-2.5 h-2.5 rounded-full bg-gray-400 mr-2;
+  }
+  
+  .status-active {
+    @apply bg-success;
+  }
+  
+  .status-indicator-wrapper {
+    @apply flex items-center;
+  }
+  
+  .status-text {
+    @apply text-xs font-medium;
+  }
+}
+
+@layer utilities {
+  .flex-2 {
+    flex: 2;
+  }
+  
+  .icon-spin {
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-col-mobile {
+    @apply flex-col items-start gap-2;
+  }
+} 

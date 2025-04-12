@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory Tree Printer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">  
+    <div class="main-content">
+      <div class="settings-panel">
+        <div class="panel-header">
+          <div class="flex items-center">
+            <i class="bi bi-gear-fill mr-2"></i> Directory Settings
+          </div>
+        </div>
+        
+        <div class="panel-body">
+          <div class="input-container">
+            <div class="flex items-center">
+              <input type="text" id="dirPath" class="input-field" readonly placeholder="Select directory path">
+              <button id="browseBtn" class="browse-button" title="Browse for directory">
+                <i class="bi bi-folder2-open"></i>
+              </button>
+            </div>
+            <label for="dirPath" class="input-label">Path to Directory</label>
+          </div>
+          
+          <div class="controls-row">
+            <div class="small-input">
+              <input type="number" id="depthLimit" class="input-field" min="1" value="1">
+              <label for="depthLimit" class="input-label">Depth Limit</label>
+            </div>
+            
+            <div class="toggle-container">
+              <div class="toggle-wrapper">
+                <input class="toggle-input" type="checkbox" id="printOption" checked>
+                <label class="toggle-label" for="printOption"></label>
+              </div>
+              <label class="toggle-text">Print to Output</label>
+            </div>
+          </div>
+          
+          <div class="actions-row">
+            <button id="generateBtn" class="primary-button">
+              <i class="bi bi-diagram-3-fill"></i> Generate
+            </button>
+            <button id="saveBtn" class="secondary-button">
+              <i class="bi bi-file-earmark-arrow-down"></i> Save
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="output-panel">
+        <div class="panel-header">
+          <div class="flex items-center">
+            <i class="bi bi-terminal-fill mr-2"></i> Output
+          </div>
+          <div class="status-indicator-wrapper">
+            <span id="status-indicator" class="status-indicator"></span>
+            <span id="status-text" class="status-text">Ready</span>
+          </div>
+        </div>
+        
+        <div class="panel-body flex flex-col h-[calc(100%-2.75rem)]">
+          <div class="buttons-row">
+            <button id="copyBtn" class="copy-button">
+              <i class="bi bi-clipboard"></i> Copy
+            </button>
+            <button id="clearBtn" class="clear-button">
+              <i class="bi bi-x-lg"></i> Clear
+            </button>
+          </div>
+          
+          <div class="header-section">
+            <pre id="header-info" class="header-info"></pre>
+          </div>
+          
+          <div class="tree-section">
+            <pre id="tree-output" class="tree-output"></pre>
+          </div>
+          
+          <pre id="output" class="hidden"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html> 

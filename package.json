@@ -1,0 +1,47 @@
+{
+  "name": "printTreeDir",
+  "version": "1.0.0",
+  "description": "Directory Tree Printer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:css": "npx tailwindcss -i input.css -o styles.css"
+  },
+  "author": "@thiennd135",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
+    "electron": "^28.3.3",
+    "postcss": "^8.5.3",
+    "rimraf": "^5.0.10",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0"
+  },
+  "build": {
+    "appId": "com.printtree.app",
+    "productName": "PrintTreeDir",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "node_modules/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": "dir",
+      "icon": "assets/icon.ico"
+    },
+    "electronLanguages": [
+      "en-US",
+      "vi"
+    ]
+  }
+}
